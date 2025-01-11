@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<ruleset name="wp-plugin-template">
+	<description>WordPress plugin phpcs rules for Plugin.</description>
+
+	<!-- Check all files in this directory and the directories below it. -->
+	<file>./plugin.php</file>
+
+	<rule ref="10up-Default">
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found" />
+		<exclude name="PHPCompatibility.FunctionDeclarations.NewReturnTypeDeclarations.voidFound" />
+	</rule>
+
+	<!-- Exclude folders. -->
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+
+	<!-- Pass some flags to PHPCS:
+		p flag: Show progress of the run.
+		s flag: Show sniff codes in all reports.
+		v flag: Print processed files.
+   -->
+	<arg value="psv"/>
+
+	<!-- Only check the PHP files. -->
+	<arg name="extensions" value="php"/>
+
+	<!-- Verify that the text_domain is set to the desired text-domain.
+		 Multiple valid text domains can be provided as a comma-delimited list. -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array" value="blocks-plugin-template" />
+		</properties>
+	</rule>
+
+	<!-- Include sniffs for PHP cross-version compatibility. -->
+	<rule ref="PHPCompatibility"/>
+
+	<config name="testVersion" value="8.0-"/>
+</ruleset>

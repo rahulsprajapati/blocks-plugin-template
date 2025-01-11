@@ -1,0 +1,35 @@
+{
+	"name": "blocks-plugin-template",
+	"version": "0.1.0",
+	"description": "Example block scaffolded with Create Block tool.",
+	"author": "Rahul Prajapati",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build ./src/index.js",
+		"format": "wp-scripts format ./src",
+		"lint:css": "wp-scripts lint-style ./src",
+		"lint:js": "wp-scripts lint-js ./src",
+		"packages-update": "wp-scripts packages-update ./src",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"watch": "wp-scripts start ./src/index.js"
+	},
+	"files": [
+		"build",
+		"languages",
+		"screenshots",
+		"src",
+		"vendor",
+		"composer.json",
+		"composer.lock",
+		"package.json",
+		"plugin.php",
+		"readme.txt"
+	],
+	"devDependencies": {
+		"@wordpress/scripts": "^30.8.1"
+	},
+	"dependencies": {
+		"classnames": "^2.5.1"
+	}
+}
